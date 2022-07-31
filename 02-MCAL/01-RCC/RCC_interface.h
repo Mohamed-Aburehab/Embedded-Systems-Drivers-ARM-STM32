@@ -10,9 +10,16 @@
 #ifndef RCC_INTERFACE_H_
 #define RCC_INTERFACE_H_
 
+/* Buses Macro */
 #define RCC_AHB                    0
 #define RCC_APB1                   1
 #define RCC_APB2                   2
+
+/* Peripherals Bus Macro */
+#define RCC_APB2_AFIO              0    // Alternate function IO clock
+#define RCC_APB2_IOPA              2    // IO port A clock 
+#define RCC_APB2_IOPB              3    // IO port B clock 
+#define RCC_APB2_IOPC              4    // IO port C clock 
 
 /**
  * @brief It enables the clock of a peripheral by setting the corresponding bit in the corresponding register
