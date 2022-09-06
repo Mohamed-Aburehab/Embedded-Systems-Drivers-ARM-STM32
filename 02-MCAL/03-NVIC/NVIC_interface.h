@@ -121,7 +121,7 @@ void MNVIC_voidClearPendingFlag(u8 Copy_u8IntNumber);
 u8 MNVIC_u8GetActiveFlag(u8 Copy_u8IntNumber);
 
 /**
- * @brief It sets group priority and the subgroup priority by taking the takes the interrupt ID, 
+ * @brief It sets group priority and the subgroup priority by taking the interrupt ID, 
  * the group priority and the subgroup priority and writes them to the appropriate register
  * 
  * @param Copy_u8InterruptID The interrupt number you want to set the priority for.
