@@ -24,4 +24,6 @@ typedef signed char             s8;
 #define ERROR_TIMEOUT 4
 #define BUSY_FUNCTION 5 
 
+#define NULL 0
+
 #endif
