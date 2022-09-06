@@ -11,34 +11,29 @@
 #define EXTI_INTERFACE_H_
 
                             /* Lines Definitions */
-#define EXTI_LINE_0                   0
-#define EXTI_LINE_1                   1
-#define EXTI_LINE_2                   2
-#define EXTI_LINE_3                   3
-#define EXTI_LINE_4                   4
-#define EXTI_LINE_5                   5
-#define EXTI_LINE_6                   6
-#define EXTI_LINE_7                   7
-#define EXTI_LINE_8                   8
-#define EXTI_LINE_9                   9
-#define EXTI_LINE_10                  10
-#define EXTI_LINE_11                  11
-#define EXTI_LINE_12                  12 
-#define EXTI_LINE_13                  13 
-#define EXTI_LINE_14                  14 
-#define EXTI_LINE_15                  15
+#define MEXTI_LINE_0                   0
+#define MEXTI_LINE_1                   1
+#define MEXTI_LINE_2                   2
+#define MEXTI_LINE_3                   3
+#define MEXTI_LINE_4                   4
+#define MEXTI_LINE_5                   5
+#define MEXTI_LINE_6                   6
+#define MEXTI_LINE_7                   7
+#define MEXTI_LINE_8                   8
+#define MEXTI_LINE_9                   9
+#define MEXTI_LINE_10                  10
+#define MEXTI_LINE_11                  11
+#define MEXTI_LINE_12                  12 
+#define MEXTI_LINE_13                  13 
+#define MEXTI_LINE_14                  14 
+#define MEXTI_LINE_15                  15
 
                             /* Modes Definitions */
-#define EXTI_MODE_RISING                   0
-#define EXTI_MODE_FALLING                  1
-#define EXTI_MODE_ON_CHANGE                2
+#define MEXTI_MODE_RISING                   0
+#define MEXTI_MODE_FALLING                  1
+#define MEXTI_MODE_ON_CHANGE                2
 
                             /*Functions Prototype */
-
-/**
- * @brief Initialize External Intterupts Mode
- */
-void MEXTI_voidInit();
 
 /**
  * @brief It enables the interrupt of the line that is passed to it
@@ -69,5 +64,13 @@ void MEXTI_voidSwTrigger(u8 Copy_u8Line);
  */
 void MEXTI_voidSetSignalLatch(u8 Copy_u8Line,u8 Copy_u8Mode);
 
+/**
+ * It takes a line number and a function pointer, and stores the function pointer in an array of
+ * function pointers
+ * 
+ * @param Copy_u8Line The line number of the interrupt.
+ * @param Copy_pvoidFunc is a pointer to a function that takes no parameters and returns void.
+ */
+void MEXTI_voidSetCallBack(u8 Copy_u8Line, void(*Copy_pvoidFunc)(void));
 
 #endif
