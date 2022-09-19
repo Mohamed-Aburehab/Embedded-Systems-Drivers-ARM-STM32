@@ -3,7 +3,7 @@
 /**********************    Author : Mohamed Aburehab    **********************/
 /**********************    Layer  : HAL                 **********************/
 /**********************    SWD    : LED                 **********************/
-/**********************    Version: 1.0                 **********************/
+/**********************    Version: 2.0                 **********************/
 /*****************************************************************************/
 /*****************************************************************************/
 
@@ -30,13 +30,13 @@ void SSD_voidDisplay(u8 Copy_u8Port, u8 Copy_u8StartPin,u8 SSD_u8Type, u8 Copy_u
         0b01101111      // value of 9 on seven segment 
         }; 	
 
-    MGPIO_voidSetPinDirection(Copy_u8Port, Copy_u8StartPin, OUTPUT_SPEED_10MHZ_PP);
-    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +1), OUTPUT_SPEED_10MHZ_PP);
-    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +2), OUTPUT_SPEED_10MHZ_PP);
-    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +3), OUTPUT_SPEED_10MHZ_PP);
-    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +4), OUTPUT_SPEED_10MHZ_PP);
-    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +5), OUTPUT_SPEED_10MHZ_PP);
-    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +6), OUTPUT_SPEED_10MHZ_PP);
+    MGPIO_voidSetPinDirection(Copy_u8Port, Copy_u8StartPin, MGPIO_OUTPUT_SPEED_10MHZ_PP);
+    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +1), MGPIO_OUTPUT_SPEED_10MHZ_PP);
+    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +2), MGPIO_OUTPUT_SPEED_10MHZ_PP);
+    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +3), MGPIO_OUTPUT_SPEED_10MHZ_PP);
+    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +4), MGPIO_OUTPUT_SPEED_10MHZ_PP);
+    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +5), MGPIO_OUTPUT_SPEED_10MHZ_PP);
+    MGPIO_voidSetPinDirection(Copy_u8Port, (Copy_u8StartPin +6), MGPIO_OUTPUT_SPEED_10MHZ_PP);
 
     switch (SSD_u8Type)
     {
