@@ -3,7 +3,7 @@
 /**********************    Author : Mohamed Aburehab    **********************/
 /**********************    Layer  : MCAL                **********************/
 /**********************    SWD    : DIO                 **********************/
-/**********************    Version: 1.0                 **********************/
+/**********************    Version: 2.0                 **********************/
 /*****************************************************************************/
 /*****************************************************************************/
 
@@ -24,7 +24,7 @@
 void MGPIO_voidSetPinDirection(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8Mode){
     switch (Copy_u8Port)
     {
-    case GPIOA: 
+    case MGPIO_PORT_A: 
         /* for pins from 0 to 7 */
         if (Copy_u8Pin <= 7){
             GPIOA_CRL &= ~((0b1111)<<(Copy_u8Pin * 4)); /* Clear Pin Configuration */
@@ -36,7 +36,7 @@ void MGPIO_voidSetPinDirection(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8Mode){
             GPIOA_CRH &= ~((0b1111)<<(Copy_u8Pin * 4)); /* Clear Pin Configuration */
             GPIOA_CRH |= ((Copy_u8Mode)<<(Copy_u8Pin * 4)); /* Set Pin Configuration */
         } break;
-    case GPIOB:
+    case MGPIO_PORT_B:
         /* for pins from 0 to 7 */
         if (Copy_u8Pin <= 7){
             GPIOB_CRL &= ~((0b1111)<<(Copy_u8Pin * 4)); /* Clear Pin Configuration */
@@ -48,7 +48,7 @@ void MGPIO_voidSetPinDirection(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8Mode){
             GPIOB_CRH &= ~((0b1111)<<(Copy_u8Pin * 4)); /* Clear Pin Configuration */
             GPIOB_CRH |= ((Copy_u8Mode)<<(Copy_u8Pin * 4)); /* Set Pin Configuration */
         } break;
-    case GPIOC: 
+    case MGPIO_PORT_C: 
         /* for pins from 0 to 7 */
         if (Copy_u8Pin <= 7){
             GPIOC_CRL &= ~((0b1111)<<(Copy_u8Pin * 4)); /* Clear Pin Configuration */
@@ -72,23 +72,23 @@ void MGPIO_voidSetPinDirection(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8Mode){
  */
 void MGPIO_voidSetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin, u8 Copy_u8Value){
     /* Checking if the value is high. */
-    if (Copy_u8Value == GPIO_HIGH){
+    if (Copy_u8Value == MGPIO_VALUE_HIGH){
         /* Setting the value of the pin to high. */
         switch (Copy_u8Port)
         {
-            case GPIOA: SET_BIT(GPIOA_ODR, Copy_u8Pin); break;
-            case GPIOB: SET_BIT(GPIOB_ODR, Copy_u8Pin); break;
-            case GPIOC: SET_BIT(GPIOC_ODR, Copy_u8Pin); break;
+            case MGPIO_PORT_A: SET_BIT(GPIOA_ODR, Copy_u8Pin); break;
+            case MGPIO_PORT_B: SET_BIT(GPIOB_ODR, Copy_u8Pin); break;
+            case MGPIO_PORT_C: SET_BIT(GPIOC_ODR, Copy_u8Pin); break;
         }
     /* Checking if the value is low. */
     }
-    else if (Copy_u8Value == GPIO_LOW){
+    else if (Copy_u8Value == MGPIO_VALUE_LOW){
         /* Setting the value of the pin to low. */
         switch (Copy_u8Port)
         {
-            case GPIOA: CLR_BIT(GPIOA_ODR, Copy_u8Pin); break;
-            case GPIOB: CLR_BIT(GPIOB_ODR, Copy_u8Pin); break;
-            case GPIOC: CLR_BIT(GPIOC_ODR, Copy_u8Pin); break;
+            case MGPIO_PORT_A: CLR_BIT(GPIOA_ODR, Copy_u8Pin); break;
+            case MGPIO_PORT_B: CLR_BIT(GPIOB_ODR, Copy_u8Pin); break;
+            case MGPIO_PORT_C: CLR_BIT(GPIOC_ODR, Copy_u8Pin); break;
         }
     }
 }
@@ -109,9 +109,9 @@ u8 MGPIO_u8GetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin){
     switch (Copy_u8Port)
     {
         /* Getting the value of the pin. */
-        case GPIOA: Local_u8Result = GET_BIT(GPIOA_IDR, Copy_u8Pin); break;
-        case GPIOB: Local_u8Result = GET_BIT(GPIOB_IDR, Copy_u8Pin); break;
-        case GPIOC: Local_u8Result = GET_BIT(GPIOC_IDR, Copy_u8Pin); break;
+        case MGPIO_PORT_A: Local_u8Result = GET_BIT(GPIOA_IDR, Copy_u8Pin); break;
+        case MGPIO_PORT_B: Local_u8Result = GET_BIT(GPIOB_IDR, Copy_u8Pin); break;
+        case MGPIO_PORT_C: Local_u8Result = GET_BIT(GPIOC_IDR, Copy_u8Pin); break;
     }
     /* Returning the value of the pin. */
     return Local_u8Result;
