@@ -61,6 +61,9 @@ void MSTK_voidSetBusyWait(u32 Copy_u32Ticks){
  * finish counting.
  */
 void MSTK_voidSetIntervalSingle(u32 Copy_u32Ticks, void (*Copy_pvNotificationFunc)(void)){
+    /* Disable timer by clearing the enable bit and setting the value to zero. */
+    CLR_BIT(STK_CTRL, STK_CTRL_ENABLE);
+    STK_VAL = 0;
     /* A global variable that is used to determine the interrupt mode . */
     STK_gu8InterruptSource = STK_INTERRUPT_SOURCE_INTERVAL_SINGLE;
     /* Assigning the address of the function to the global variable `CallBack`. */
