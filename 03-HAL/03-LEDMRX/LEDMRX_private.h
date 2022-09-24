@@ -22,4 +22,12 @@ static void DisableAllColumns(void);
  */
 static void SetRowValues(u8 Copy_u8Value);
 
+/**
+ * @brief For each column, set the row values, enable the column, wait 2.5ms, disable the column.
+ * 
+ * @param Copy_u8Data is the array of data that will be displayed on the matrix.
+ * @param i is the index of the array
+ */
+static void HLEDMRX_voidDisplayFrame(u8 *Copy_u8Data, u8 i);
+
 #endif
